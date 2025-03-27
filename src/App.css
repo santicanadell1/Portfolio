@@ -1,38 +1,207 @@
+/* Estilos generales */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(45deg, #1c1c1c, #0a0a0a, #1c1c1c);
+  background-size: 600% 600%;
+  animation: gradientAnimation 20s ease infinite;
+  display: flex;
+  flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  font-family: 'Tektur';
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  text-align: center;
+  z-index: 1;
+  color: #39FF14;
+}
+
+/* Titulo y nombre */
+.title {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.name {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #39FF14;
+  white-space: nowrap;
+  overflow: hidden;
+  border-left: 4px solid #39FF14;
+  animation: typing 4s steps(20) 1s 1 normal both, blink 0.75s step-end infinite;
+  font-family: 'Tourney';
+}
+
+/* Navbar */
+.nav {
+  width: 100%;
+  text-align: center;
+  background-color: #1c1c1c;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.nav-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #39FF14;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Imagen de perfil */
+.profile-pic-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 100px; /* Aumenta este valor para mover la imagen más abajo */
+  position: relative;
+  top: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.profile-pic {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px #39FF14, 0 0 30px rgba(0, 255, 127, 0.6);
+  transition: transform 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
+.profile-pic:hover {
+  transform: scale(1.1);
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes typing {
   from {
-    transform: rotate(0deg);
+    width: 0;
   }
   to {
-    transform: rotate(360deg);
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Responsive Design: Media Queries */
+
+/* Pantallas grandes (desktops) */
+@media (min-width: 1024px) {
+  .App {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 50px;
+  }
+
+  .App-header {
+    text-align: left;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+  }
+
+  .profile-pic-container {
+    margin-top: 0;
+  }
+
+  .profile-pic {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 1024px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .App-header {
+    text-align: center;
+    position: relative;
+    top: 50px;
+  }
+
+  .profile-pic {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .nav-text {
+    font-size: 1.2rem;
+  }
+
+  .App-header {
+    margin-top: 20px;
+    position: relative;
+    top: 20px;
+  }
+
+  .profile-pic {
+    width: 250px;
+    height: 250px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .nav-text {
+    font-size: 1.2rem;
+  }
+
+  .App-header {
+    position: relative;
+  }
+
+  .profile-pic {
+    width: 250px;
+    height: 250px;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-top: -60px;
+  }
+
+  .name {
+    font-size: 2.5rem;
   }
 }

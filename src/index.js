@@ -1,6 +1,7 @@
+// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.css'; // Asegúrate de que este archivo exista
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,7 +12,5 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Si quieres medir el rendimiento de la app, pasa una función como reportWebVitals(console.log)
 reportWebVitals();

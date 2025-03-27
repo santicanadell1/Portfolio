@@ -7,9 +7,18 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "@tsparticles/react": "^3.0.0",
+    "framer-motion": "^12.6.2",
+    "jquery": "^3.7.1",
     "react": "^19.0.0",
+    "react-background-animation": "^1.0.1",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
+    "react-tsparticles": "^2.12.2",
+    "sass": "^1.86.0",
+    "sass-loader": "^16.0.5",
+    "styled-components": "^6.1.16",
+    "tsparticles": "^3.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
