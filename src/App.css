@@ -1,31 +1,111 @@
-/* Estilos generales */
 .App {
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   width: 100%;
-  background: linear-gradient(45deg, #1c1c1c, #0a0a0a, #1c1c1c);
-  background-size: 600% 600%;
-  animation: gradientAnimation 20s ease infinite;
   display: flex;
-  flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
   padding: 20px;
   font-family: 'Tektur';
+  background: linear-gradient(-45deg, #0a0a0a, #011627, #0a0a0a, #011627);
+  background-size: 400% 400%;
+  animation: breathing 12s ease infinite;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .App-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  position: relative; /* Siempre relativo */
+  margin-top: 120px; 
+  margin-bottom: 100px; 
   z-index: 1;
-  color: #39FF14;
 }
 
-/* Titulo y nombre */
+
+
+.nav {
+  width: 100%;
+  text-align: center;
+  background-color: #011627;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.nav-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #39FF14;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.profile-pic-container {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  z-index: 1;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-pic-container::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 376px;
+  height: 376px;
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 30deg,
+    #39FF14 90deg,
+    #00fff7 180deg,
+    #39FF14 270deg,
+    transparent 330deg,
+    transparent 360deg
+  );
+  border-radius: 50%;
+  animation: spinLava 5s linear infinite;
+  z-index: 1;
+  filter: blur(6px);
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+}
+
 .title {
   font-size: 2.5rem;
   font-weight: normal;
   margin-bottom: 5px;
+  color: #00fff7;
 }
 
 .name {
@@ -39,169 +119,57 @@
   font-family: 'Tourney';
 }
 
-/* Navbar */
-.nav {
-  width: 100%;
-  text-align: center;
-  background-color: #1c1c1c;
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-.nav-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #39FF14;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* Imagen de perfil */
-.profile-pic-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px; /* Aumenta este valor para mover la imagen más abajo */
-  position: relative;
-  top: 50px;
-}
-
-.profile-pic {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 15px #39FF14, 0 0 30px rgba(0, 255, 127, 0.6);
-  transition: transform 0.3s ease-in-out;
-}
-
-.profile-pic:hover {
-  transform: scale(1.1);
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
+@keyframes spinLava {
+  from {
+    transform: rotate(0deg);
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  to {
+    transform: rotate(360deg);
   }
 }
 
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+  50% { border-color: transparent; }
 }
 
-/* Responsive Design: Media Queries */
-
-/* Pantallas grandes (desktops) */
+/* Responsive Design */
 @media (min-width: 1024px) {
   .App {
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column; 
+    justify-content: flex-start; 
     padding: 50px;
   }
 
   .App-header {
-    text-align: left;
-    position: absolute;
-    top: 200px;
-    left: 100px;
-  }
-
-  .profile-pic-container {
-    margin-top: 0;
+    text-align: left; 
+    position: relative; /* Cambiado a relativo para no solaparse */
+    margin-top: 130px;
+    margin-bottom: 100px; /* mucho espacio abajo */
   }
 
   .profile-pic {
-    width: 350px;
+    width: 350px; 
     height: 350px;
   }
 }
 
-/* Pantallas medianas (tabletas) */
+
 @media (max-width: 1024px) {
-  .App {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .App-header {
-    text-align: center;
-    position: relative;
-    top: 50px;
-  }
-
-  .profile-pic {
-    width: 300px;
-    height: 300px;
-  }
+  .App { flex-direction: column; align-items: center; }
+  .App-header { text-align: center; position: relative; top: 50px; }
+  .profile-pic { width: 300px; height: 300px; }
 }
 
-/* Pantallas pequeñas (móviles) */
 @media (max-width: 600px) {
-  .nav-text {
-    font-size: 1.2rem;
-  }
-
-  .App-header {
-    margin-top: 20px;
-    position: relative;
-    top: 20px;
-  }
-
-  .profile-pic {
-    width: 250px;
-    height: 250px;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .name {
-    font-size: 2.5rem;
-  }
-}
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-  .nav-text {
-    font-size: 1.2rem;
-  }
-
-  .App-header {
-    position: relative;
-  }
-
-  .profile-pic {
-    width: 250px;
-    height: 250px;
-  }
-
-  .title {
-    font-size: 2rem;
-    margin-top: -60px;
-  }
-
-  .name {
-    font-size: 2.5rem;
-  }
+  .nav-text { font-size: 1.2rem; }
+  .App-header { flex-direction: column; align-items: center; top: 20px; }
+  .text-container { align-items: center; text-align: center; }
+  .profile-pic { width: 250px; height: 250px; }
+  .title { font-size: 2rem; margin-top: -60px; }
+  .name { font-size: 2.5rem; }
 }

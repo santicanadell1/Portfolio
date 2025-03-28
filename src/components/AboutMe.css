@@ -1,0 +1,27 @@
+.about-me {
+    width: 80%;
+    max-width: 900px;
+    margin: 100px auto 100px auto; /* aumenta el margen superior aquí */
+    padding: 40px;
+    background: rgba(1, 22, 39, 0.8);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 255, 247, 0.2);
+    backdrop-filter: blur(8px);
+    text-align: center;
+  }
+  
+  
+  .section-title {
+    color: #39FF14;
+    font-family: 'Tourney', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-description {
+    font-family: 'Tektur', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+  
